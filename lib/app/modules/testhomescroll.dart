@@ -446,39 +446,42 @@ class HomeViewTest extends GetView<HomeController> {
                           ],
                         ),
                       ),
-                     FutureBuilder<List<Doctor>>(
-        future: DoctorService().getTopRatedDoctor(),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.waiting:
-              return Center(child: CircularProgressIndicator());
-            default:
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text('error '.tr + snapshot.error.toString()),
-                );
-              } else if (snapshot.data!.isEmpty) {
-                return Center(
-                  child: Text('Top Rated Doctor is empty '.tr),
-                );
-              } else {
-                return ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (context, index) => DoctorCard(
-                    doctorName: snapshot.data![index].doctorName,
-                    doctorSpecialty: snapshot.data![index].doctorCategory!.categoryName,
-                    imageUrl: snapshot.data![index].doctorPicture,
-                    onTap: () {
-                      Get.toNamed('/detail-doctor', arguments: snapshot.data![index]);
-                    },
-                  ),
-                );
-              }
-          }
-        },
-      ),
+                     Container(
+                      height: 300,
+                       child: FutureBuilder<List<Doctor>>(
+                               future: DoctorService().getTopRatedDoctor(),
+                               builder: (context, snapshot) {
+                                 switch (snapshot.connectionState) {
+                                   case ConnectionState.waiting:
+                                     return Center(child: CircularProgressIndicator());
+                                   default:
+                                     if (snapshot.hasError) {
+                                       return Center(
+                                         child: Text('error '.tr + snapshot.error.toString()),
+                                       );
+                                     } else if (snapshot.data!.isEmpty) {
+                                       return Center(
+                                         child: Text('Top Rated Doctor is empty '.tr),
+                                       );
+                                     } else {
+                                       return ListView.builder(
+                                         shrinkWrap: true,
+                                         physics: NeverScrollableScrollPhysics(),
+                                         itemCount: snapshot.data!.length,
+                                         itemBuilder: (context, index) => DoctorCard(
+                                           doctorName: snapshot.data![index].doctorName,
+                                           doctorSpecialty: snapshot.data![index].doctorCategory!.categoryName,
+                                           imageUrl: snapshot.data![index].doctorPicture,
+                                           onTap: () {
+                        Get.toNamed('/detail-doctor', arguments: snapshot.data![index]);
+                                           },
+                                         ),
+                                       );
+                                     }
+                                 }
+                               },
+                             ),
+                     ),
                     ],
                   ),
                 ),

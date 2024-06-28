@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:hallo_doctor_client/app/modules/test.dart';
 import 'package:hallo_doctor_client/app/modules/testhomescroll.dart';
 import 'package:hallo_doctor_client/app/utils/constants/style_constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CleaningPage extends StatefulWidget {
   const CleaningPage({ Key? key }) : super(key: key);
@@ -119,12 +120,15 @@ class _CleaningPageState extends State<CleaningPage> {
           onPressed: () {
             // Navigate to the next screen
             
-              Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomeViewTest(),
-            ),
-          );
+          //     Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => HomeViewTest(),
+          //   ),
+
+            
+          // );
+          launch('tel:9390');
           },
           child: Text('Call For More Info'),
         ),
