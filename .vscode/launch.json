@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "hallo_doctor",
+            "request": "launch",
+            "type": "dart",
+        },
+        {
+            "name": "hallo_doctor (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "hallo_doctor (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Flutter Firebase Emulator",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_firebase_emulators/main_firebase_emulators.dart",
+            "flutterMode": "debug",
+        },
+    ]
+}

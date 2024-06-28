@@ -1,0 +1,103 @@
+name: hallo_doctor_client
+version: 1.2.3+25
+publish_to: none
+description: A new Flutter project.
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+
+dependencies:
+  
+  cupertino_icons: ^1.0.2
+  get: 4.6.6
+  flutter:
+    sdk: flutter
+  
+  firebase_core: ^2.17.0
+  firebase_auth: ^4.7.3
+  cloud_firestore: ^4.8.5
+  cloud_functions: ^4.4.2
+  firebase_storage: ^11.2.8
+  firebase_database: ^10.2.7
+  firebase_messaging: ^14.2.2
+  google_sign_in: ^6.2.1
+  flutter_signin_button: ^2.0.0
+  flutter_easyloading: ^3.0.5
+  fluttertoast: ^8.0.9
+  google_fonts: ^5.1.0
+  get_storage: ^2.0.3
+  carousel_slider: ^4.1.1
+  flutter_rating_bar: ^4.0.1
+  string_validator: ^0.3.0
+  image_picker: ^0.8.5+3
+  path_provider: ^2.0.11
+  path: ^1.8.0
+  flutter_dotenv: ^5.0.2
+  cached_network_image: ^3.3.1
+  date_picker_timeline: ^1.2.3
+  flutter_stripe: ^9.4.0
+  flutter_svg: ^1.0.3
+  lottie: ^1.3.0
+  http: ^1.1.0
+  flutter_form_builder: ^9.1.0
+  form_builder_validators: ^9.1.0
+  package_info_plus: ^4.1.0
+  file_picker: ^5.1.0
+  uuid: ^3.0.6
+  mime: ^1.0.2
+  flutter_chat_ui:
+    git:
+      url: https://github.com/amsyary/flutter_chat_ui.git
+  # flutter_chat_ui:
+  #   path: ../flutter_chat_ui
+  timezone: ^0.9.0
+  flutter_local_notifications: ^17.1.2
+  flutter_native_timezone: ^2.0.0
+  jiffy: ^5.0.0
+  agora_rtc_engine: ^5.3.1
+  permission_handler: ^10.2.0
+  flutter_callkit_incoming: ^1.0.3+3
+  json_serializable: ^6.2.0
+  json_annotation: ^4.8.0
+  image_cropper: ^5.0.0
+  sign_in_with_apple: ^4.2.0
+  connectycube_flutter_call_kit: ^2.2.1
+  # razorpay_flutter: ^1.3.4
+  freezed_annotation: ^2.4.1
+  webview_flutter: ^4.4.2
+  chips_choice: ^3.0.1
+  flutter_speed_dial: ^7.0.0
+  url_launcher: ^6.2.4
+  
+
+dependency_overrides:
+  intl: 0.19.0
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  lints: 2.0.0
+  flutter_test:
+    sdk: flutter
+  
+  flutter_launcher_icons: ^0.9.3
+  change_app_package_name: ^1.1.0
+  build_runner: ^2.1.11
+  freezed: ^2.4.3
+  patrol: ^3.7.2
+  mockito: ^5.4.2
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env
+    - assets/images/
+    - assets/icons/
+    - assets/banks/
+    - assets/animations/
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/icons/ic_launcher.png"
+  remove_alpha_ios: true
