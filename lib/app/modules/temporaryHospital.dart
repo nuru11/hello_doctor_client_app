@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
+import 'package:hallo_doctor_client/app/models/doctor_category_model.dart';
 import 'package:hallo_doctor_client/app/modules/servicedetail.dart';
 import 'package:hallo_doctor_client/app/utils/constants/style_constants.dart';
 
-class SelectService extends StatefulWidget {
-  const SelectService({ Key? key }) : super(key: key);
+class SelectServiceHospital extends StatefulWidget {
+  const SelectServiceHospital({ Key? key }) : super(key: key);
 
   @override
   _SelectServiceState createState() => _SelectServiceState();
 }
 
-class _SelectServiceState extends State<SelectService> {
+class _SelectServiceState extends State<SelectServiceHospital> {
   List<Service> services = [
-    Service('Addis ababa', 'assets/images/1.png'),
-    Service('Dire dawa', 'assets/images/2.png'),
-    Service('Gondar', 'assets/images/3.png'),
-    Service('Bhar dare', 'assets/images/4.png'),
-    Service('Jimma', 'assets/images/5.png'),
-    Service('Hawasa', 'assets/images/6.png'),
-    Service('axum', 'assets/images/7.png'),
-    Service('mekelle', 'assets/images/8.png'),
-    Service('jijiga', 'assets/images/9.png'),
-    Service('Adama', 'assets/images/10.png'),
+    Service('Amin Hospital', 'https://media.licdn.com/dms/image/C4D03AQFDswODJD8u0A/profile-displayphoto-shrink_200_200/0/1621862706507?e=2147483647&v=beta&t=YpEpfpU5_556gXcUkQkuZNqh0TMmhbYd764aWMx8Sjw'),
+    Service('Ethio Tebib', 'https://www.medanit.com/storage/images/ClVtz6Lu3h7bkLXFb2qHfUz796WS2KKYrnRGV9Qq.png'),
+    Service('SAINT', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhXKzlxWT87tKn_eul8boEpqMWwtu47_lpxQ&s'),
+    Service('Hayat Hospital', 'https://marketing.uz/brend-goda-2021/uploads/works/covers/0b81ebf7a76ea3712a14073d99f68aec.jpg'),
+    Service('Bethzatha Hospital', 'https://www.ethiopianreporterjobs.com/wp-content/uploads/2020/10/download-1-1.jpg'),
+    Service('Addis hiwot', 'https://ethiojobs.info/wp-content/uploads/2024/02/Addis-Hiwot-General-Hospital-.jpg'),
+    Service('Salam Hopital', 'https://directory.africa-business.com/assets/uploadedimages/7429688_14shc_logo51.jpg'),
+    Service('Yared Hopital', 'https://www.ethiopianreporterjobs.com/wp-content/uploads/2019/06/13873158_266011743783238_7393542163860992300_n.jpg'),
+    Service('Land Mark Hospital', 'https://images1-fabric.practo.com/practices/728698/landmark-hospitals-hyderabad-58e394b66f15b.jpg'),
+    Service('MEDCO hospital', 'https://medcosolutions.com/wp-content/uploads/2020/09/medco-logo2x.png'),
   ];
 
   int selectedService = -1;
@@ -41,12 +43,10 @@ class _SelectServiceState extends State<SelectService> {
       backgroundColor: Colors.white,
       floatingActionButton: selectedService >= 0 ? FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CleaningPage(),
-            ),
-          );
+           Get.toNamed('/list-doctor',
+            arguments: DoctorCategory(
+      categoryId: "JgtLjSs2xMxwshxXsDPm", categoryName: "Geriatric Center", iconUrl: "https://firebasestorage.googleapis.com/v0/b/doctor-208bc.appspot.com/o/uploads%2F1718198483105.jpg?alt=media&token=eabaeb16-685b-4735-8680-ae45c0bd1571",
+    ));
         },
         child: Icon(Icons.arrow_forward_ios, size: 20,),
         backgroundColor: Colors.blue,
@@ -113,23 +113,25 @@ class _SelectServiceState extends State<SelectService> {
         duration: Duration(milliseconds: 300),
         padding: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
-          // color: selectedService == index ? Colors.blue.shade50 : Colors.grey.shade100,
-          color: selectedService == index ? Colors.transparent : Colors.transparent,
+          color: selectedService == index ? Colors.blue.shade50 : Colors.grey.shade100,
+          // color: selectedService == index ? Colors.transparent : Colors.transparent,
           border: Border.all(
             color: selectedService == index ? Colors.blue : Colors.blue.withOpacity(0),
             width: 2.0,
           ),
           borderRadius: BorderRadius.circular(20.0),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            // Image.network(image, height: 80),
-            //  Image.asset("assets/images/D2.jpg"),
-            Image.asset(image),
-            // SizedBox(height: 20,),
-            // Text(name, style: TextStyle(fontSize: 20),)
-          ]
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.network(image, height: 80),
+              //  Image.asset("assets/images/D2.jpg"),
+          
+              SizedBox(height: 20,),
+              Text(name, style: TextStyle(fontSize: 20),)
+            ]
+          ),
         ),
       ),
     );
@@ -143,13 +145,3 @@ class Service {
   Service(this.name, this.imageURL);
 }
 
-// class CleaningPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("kkkkkkkkkkk"),
-//         actions: [],),
-//     );
-//   }
-// }
