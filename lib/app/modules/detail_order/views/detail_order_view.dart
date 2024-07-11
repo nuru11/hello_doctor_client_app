@@ -5,6 +5,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hallo_doctor_client/app/models/order_detail_model.dart';
+import 'package:hallo_doctor_client/app/modules/payment_steps/views/payment_steps.dart';
 import 'package:hallo_doctor_client/app/utils/constants/constants.dart';
 import 'package:hallo_doctor_client/app/utils/constants/style_constants.dart';
 
@@ -81,53 +82,54 @@ class DetailOrderView extends GetView<DetailOrderController> {
                         ),
                       ),
                     ),
-                    GetBuilder<DetailOrderController>(
-                      builder: (_) {
-                        return FormBuilder(
-                          key: controller.formKey,
-                          child: Column(
-                            children: [
-                              FormBuilderDropdown(
-                                name: 'payment_method',
-                                isExpanded: true,
-                                decoration: InputDecoration(
-                                    hintText: 'Payment Method',
-                                    border: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        borderSide: BorderSide(
-                                          width: 1,
-                                          style: BorderStyle.solid,
-                                        ))),
-                                items: controller.paymentType.map((option) {
-                                  if (option == 'Wallet') {
-                                    return DropdownMenuItem(
-                                      child: Text(
-                                          'Wallet with Balance: $currencySign${controller.userWallet?.balance?.toString() ?? '0'}'),
-                                      value: option,
-                                    );
-                                  }
-                                  return DropdownMenuItem(
-                                    child: Text(option),
-                                    value: option,
-                                  );
-                                }).toList(),
-                                validator: FormBuilderValidators.required(),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
+                    // GetBuilder<DetailOrderController>(
+                    //   builder: (_) {
+                    //     return FormBuilder(
+                    //       key: controller.formKey,
+                    //       child: Column(
+                    //         children: [
+                    //           FormBuilderDropdown(
+                    //             name: 'payment_method',
+                    //             isExpanded: true,
+                    //             decoration: InputDecoration(
+                    //                 hintText: 'Payment Method',
+                    //                 border: OutlineInputBorder(
+                    //                     borderRadius:
+                    //                         BorderRadius.circular(10.0),
+                    //                     borderSide: BorderSide(
+                    //                       width: 1,
+                    //                       style: BorderStyle.solid,
+                    //                     ))),
+                    //             items: controller.paymentType.map((option) {
+                    //               if (option == 'Wallet') {
+                    //                 return DropdownMenuItem(
+                    //                   child: Text(
+                    //                       'Wallet with Balance: $currencySign${controller.userWallet?.balance?.toString() ?? '0'}'),
+                    //                   value: option,
+                    //                 );
+                    //               }
+                    //               return DropdownMenuItem(
+                    //                 child: Text(option),
+                    //                 value: option,
+                    //               );
+                    //             }).toList(),
+                    //             validator: FormBuilderValidators.required(),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     );
+                    //   },
+                    // ),
+                    // SizedBox(
+                    //   height: 20,
+                    // ),
                     GetBuilder<DetailOrderController>(
                       builder: (_) {
                         return Container(
                             child: InkWell(
                           onTap: () {
-                            controller.makePayment();
+                            // controller.makePayment();
+                            _showEmailList(context);
                           },
                           child: Container(
                             height: 50,
@@ -229,4 +231,89 @@ class DetailOrderView extends GetView<DetailOrderController> {
       ),
     );
   }
+
+
+
+
+
+   void _showEmailList(BuildContext context) {
+  List<String> dummyNames = [
+    'Commercial Bank of Ethiopia (CBE)',
+    'Abay Bank',
+    'Addis International Bank',
+    '	Awash International Bank',
+    'Bank of Abyssinia',
+    'Berhan International Bank',
+    'Bunna International Bank',
+    'Cooperative Bank of Oromia',
+    'Nib International Bank',
+    'Amhara Bank',
+  ];
+
+  List<String> dummyImagePaths = [
+    'assets/banks/cbe.jpeg',
+    'assets/banks/abay.png',
+    'assets/banks/addis.jpeg',
+    'assets/banks/awash.jpeg',
+    'assets/banks/abyssinia.png',
+    'assets/banks/berhan.png',
+    'assets/banks/bunna.png',
+    'assets/banks/cooperative.png',
+    'assets/banks/nib.jpeg',
+    'assets/banks/amhara.png',
+  ];
+
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    builder: (BuildContext context) {
+      return Container(
+        height: MediaQuery.of(context).size.height * 0.8,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Banks',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: dummyNames.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage: AssetImage(dummyImagePaths[index]),
+                    ),
+                    title: Text(dummyNames[index]),
+                    onTap: () {
+                      // Perform email-related action here
+                      Navigator.of(context).pop();
+                      print(dummyImagePaths[index]);
+                      //  Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentStepsPage()));
+                      Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PaymentStepsPage(
+                  name: dummyNames[index],
+                  imagePath: dummyImagePaths[index],
+                ),
+              ),
+            );
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
 }

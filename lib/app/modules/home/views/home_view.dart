@@ -7,11 +7,13 @@ import 'package:get/get.dart';
 import 'package:hallo_doctor_client/app/models/doctor_category_model.dart';
 import 'package:hallo_doctor_client/app/models/doctor_model.dart';
 import 'package:hallo_doctor_client/app/modules/doctor_category/controllers/doctor_category_controller.dart';
+import 'package:hallo_doctor_client/app/modules/doctor_hospital/views/doctor_category_view.dart';
 import 'package:hallo_doctor_client/app/modules/home/controllers/home_controller.dart';
 import 'package:hallo_doctor_client/app/modules/home/views/components/icon_card.dart';
 import 'package:hallo_doctor_client/app/modules/home/views/components/list_doctor_card.dart';
 import 'package:hallo_doctor_client/app/modules/servicedetail.dart';
 import 'package:hallo_doctor_client/app/modules/serviceslist.dart';
+import 'package:hallo_doctor_client/app/modules/temporaryClinic.dart';
 import 'package:hallo_doctor_client/app/modules/temporaryHospital.dart';
 import 'package:hallo_doctor_client/app/modules/test.dart';
 import 'package:hallo_doctor_client/app/service/doctor_service.dart';
@@ -162,7 +164,7 @@ class HomeView extends GetView<HomeController> {
             Icons.health_and_safety,
             color: Colors.blue
           ),
-          labelWidget: Text("Test services", style: TextStyle(color:Colors.blue),),
+          labelWidget: Text("Centers", style: TextStyle(color:Colors.blue),),
           backgroundColor: Colors.white,
           onTap: () {
             Navigator.push(
@@ -269,10 +271,18 @@ class HomeView extends GetView<HomeController> {
                                   child: ElevatedButton(
                                     onPressed: () {
                                      
-                                      Get.toNamed('/list-doctor',
-                              arguments: DoctorCategory(
-                        categoryId: "JgtLjSs2xMxwshxXsDPm", categoryName: "Geriatric Center", iconUrl: "https://firebasestorage.googleapis.com/v0/b/doctor-208bc.appspot.com/o/uploads%2F1718198483105.jpg?alt=media&token=eabaeb16-685b-4735-8680-ae45c0bd1571",
-                      ));
+                      //                 Get.toNamed('/list-doctor',
+                      //         arguments: DoctorCategory(
+                      //   categoryId: "JgtLjSs2xMxwshxXsDPm", categoryName: "Geriatric Center", iconUrl: "https://firebasestorage.googleapis.com/v0/b/doctor-208bc.appspot.com/o/uploads%2F1718198483105.jpg?alt=media&token=eabaeb16-685b-4735-8680-ae45c0bd1571",
+                      // ));
+                       Navigator.push(
+      context,
+      MaterialPageRoute(
+        // builder: (context) => HDoctorCategoryView(), 
+        builder: (context) => SelectServiceClinic(),
+        
+      ),
+    );
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.blue,
@@ -403,6 +413,7 @@ class HomeView extends GetView<HomeController> {
                                  Navigator.push(
       context,
       MaterialPageRoute(
+        // builder: (context) => HDoctorCategoryView(), 
         builder: (context) => SelectServiceHospital(),
       ),
     );

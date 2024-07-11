@@ -13,6 +13,7 @@ abstract class Routes {
   static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
   static const DASHBOARD = _Paths.DASHBOARD;
   static const DOCTOR_CATEGORY = _Paths.DOCTOR_CATEGORY;
+  static const HDOCTOR_CATEGORY = _Paths.HDOCTOR_CATEGORY;
   static const LIST_DOCTOR = _Paths.LIST_DOCTOR;
   static const DETAIL_DOCTOR = _Paths.DETAIL_DOCTOR;
   static const CONSULTATION_DATE_PICKER = _Paths.CONSULTATION_DATE_PICKER;
@@ -49,6 +50,7 @@ abstract class _Paths {
   static const RESET_PASSWORD = '/reset-password';
   static const DASHBOARD = '/dashboard';
   static const DOCTOR_CATEGORY = '/doctor-category';
+  static const HDOCTOR_CATEGORY = '/hdoctor-category';
   static const LIST_DOCTOR = '/list-doctor';
   static const DETAIL_DOCTOR = '/detail-doctor';
   static const CONSULTATION_DATE_PICKER = '/consultation-date-picker';

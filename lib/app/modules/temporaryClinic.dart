@@ -5,25 +5,27 @@ import 'package:hallo_doctor_client/app/models/doctor_category_model.dart';
 import 'package:hallo_doctor_client/app/modules/servicedetail.dart';
 import 'package:hallo_doctor_client/app/utils/constants/style_constants.dart';
 
-class SelectServiceHospital extends StatefulWidget {
-  const SelectServiceHospital({ Key? key }) : super(key: key);
+class SelectServiceClinic extends StatefulWidget {
+  const SelectServiceClinic({ Key? key }) : super(key: key);
 
   @override
   _SelectServiceState createState() => _SelectServiceState();
 }
 
-class _SelectServiceState extends State<SelectServiceHospital> {
+class _SelectServiceState extends State<SelectServiceClinic> {
   List<Service> services = [
-    Service('Delt Hospital', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
-    Service('IFTU Hospital', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
-    Service('Qedade Hospital','https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
-    Service('ART Hospital', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
-    Service('Bilal Hospital ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
-    Service('Central City Hospital ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
-    // Service('Salam Hopital', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
-    // Service('Yared Hopital', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
-    // Service('Land Mark Hospital', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
-    // Service('MEDCO hospital', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Robsen clinic ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Siti clinic ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Barako clinic ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Hoyo clinic ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Harla clinic ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Future clinic ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Abadir clinic ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Dr merid clinic', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Dr Ayan Dental clinic ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Dr Teamir clinic ', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('karamara clinic', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
+    Service('Family medium clinic', 'https://assets.thehansindia.com/h-upload/2021/02/12/1030884-doctor-news.webp'),
   ];
 
   int selectedService = -1;
@@ -35,7 +37,7 @@ class _SelectServiceState extends State<SelectServiceHospital> {
         backgroundColor: mBackgroundColor,
         elevation: 0,
         title: Text(
-          'Hospitals'.tr,
+          'Services'.tr,
           style: TextStyle(color: mTitleColor),
         ),
         centerTitle: true,
@@ -47,6 +49,7 @@ class _SelectServiceState extends State<SelectServiceHospital> {
     //         arguments: DoctorCategory(
     //   categoryId: "JgtLjSs2xMxwshxXsDPm", categoryName: "Geriatric Center", iconUrl: "https://firebasestorage.googleapis.com/v0/b/doctor-208bc.appspot.com/o/uploads%2F1718198483105.jpg?alt=media&token=eabaeb16-685b-4735-8680-ae45c0bd1571",
     // ));
+
         },
         child: Icon(Icons.arrow_forward_ios, size: 20,),
         backgroundColor: Colors.blue,
@@ -54,19 +57,19 @@ class _SelectServiceState extends State<SelectServiceHospital> {
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
-            // SliverToBoxAdapter(
-            //   child: Padding(
-            //     padding: EdgeInsets.only(top: 20.0, right: 20.0, left: 20.0),
-            //     child: Text(
-            //       'Choose center where you want to \n attend?',
-            //       style: TextStyle(
-            //         fontSize: 40,
-            //         color: Colors.grey.shade900,
-            //         fontWeight: FontWeight.bold,
-            //       ),
-            //     ),
-            //   ),
-            // )
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.only(top: 20.0, right: 20.0, left: 20.0),
+                child: Text(
+                  'Choose center where you want to \n attend?',
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.grey.shade900,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            )
           ];
         },
         body: Padding(

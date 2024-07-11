@@ -164,6 +164,7 @@ class DetailOrderController extends GetxController {
       if (formKey.currentState!.validate()) {
         formKey.currentState!.save();
         var data = await Get.defaultDialog<bool>(
+          
             title: 'Confirmation',
             middleText:
                 'Are you sure you want to make payment with ${formKey.currentState!.value['payment_method']} for ${currencySign}${selectedTimeSlot.price}'

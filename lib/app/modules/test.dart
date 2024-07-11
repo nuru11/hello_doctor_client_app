@@ -134,7 +134,7 @@ class AboutUsPage extends StatelessWidget {
               ),
               SizedBox(height: 12.0),
               Text(
-                'Our mission is to provide high-quality products and services that enhance the lives of our customers. We strive to be a trusted partner and to deliver exceptional value through innovation, integrity, and a deep understanding of our customers\' needs. Our mission is to provide high-quality products and services that enhance the lives of our customers. We strive to be a trusted partner and to deliver exceptional value through innovation, integrity, and a deep understanding of our customers\' needs Our mission is to provide high-quality products and services that enhance the lives of our customers. We strive to be a trusted partner and to deliver exceptional value through innovation, integrity, and a deep understanding of our customers\' needs',
+                'Dire Digital health Care PLC (DDC PLC) is a registered and operating company in Dire Dawa, Ethiopia. DDC PLC is founded by experienced health professionals and has a single focus on healthcare which is connecting Doctors with their Patients as fast as possible Via digital health systems. We Provide the fastest, most reliable, and high quality services using the latest technology and experienced professionals. Elders (with or without chronic illness) and women are prioritized in our organization.',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(height: 24.0),

@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:hallo_doctor_client/app/modules/doctor_hospital/controllers/doctor_category_controller.dart';
 import 'package:hallo_doctor_client/app/utils/constants/style_constants.dart';
 
-import '../controllers/doctor_category_controller.dart';
+// import '../controllers/doctor_category_controller.dart';
 
-class DoctorCategoryView extends GetView<DoctorCategoryController> {
+class HDoctorCategoryView extends GetView<HDoctorCategoryController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +39,6 @@ class DoctorCategoryView extends GetView<DoctorCategoryController> {
                       onTap: () {
                         Get.toNamed('/list-doctor',
                             arguments: listCategory[index]);
-
-                      
-
                       },
                       child: Container(
                           child: Column(

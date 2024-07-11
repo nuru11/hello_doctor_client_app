@@ -17,7 +17,7 @@ class TopupWalletController extends GetxController {
   PaymentService paymentService = PaymentService();
   final UserService userService = Get.find();
   final int minimumTopUpAmount = 1;
-  final int maximumTopUpAmount = 1000;
+  final int maximumTopUpAmount = 10000;
 
   @override
   void onInit() async {

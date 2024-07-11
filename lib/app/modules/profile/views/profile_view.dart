@@ -282,13 +282,13 @@ final LocaleController localeController = Get.put(LocaleController());
                        buildLanguageDialog(context);
                       },
                     ),
-                    ProfileButton(
-                      icon: Icons.account_balance_wallet,
-                      text: 'Wallet'.tr,
-                      onTap: () {
-                        controller.toWallet();
-                      },
-                    ),
+                    // ProfileButton(
+                    //   icon: Icons.account_balance_wallet,
+                    //   text: 'Wallet'.tr,
+                    //   onTap: () {
+                    //     controller.toWallet();
+                    //   },
+                    // ),
                     SizedBox(
                       height: 20,
                     ),

@@ -36,7 +36,8 @@ class UserWalletView extends GetView<UserWalletController> {
                                     (controller.userWallet?.balance ?? '0')
                                         .toString(),
                             style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
+                                fontSize: 30, fontWeight: FontWeight.bold
+                                ),
                           ),
                           SizedBox(
                             height: 20,
@@ -45,7 +46,8 @@ class UserWalletView extends GetView<UserWalletController> {
                               onPressed: () {
                                 controller.toTopUp();
                               },
-                              child: Text('Top Up'.tr))
+                              child: Text('Top Up'.tr)
+                              )
                         ],
                       );
                     },

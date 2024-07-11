@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:hallo_doctor_client/app/modules/doctor_hospital/bindings/doctor_category_binding.dart';
+import 'package:hallo_doctor_client/app/modules/doctor_hospital/views/doctor_category_view.dart';
 
 import '../modules/appointment/bindings/appointment_binding.dart';
 import '../modules/appointment/views/appointment_view.dart';
@@ -112,6 +114,11 @@ class AppPages {
       name: _Paths.DOCTOR_CATEGORY,
       page: () => DoctorCategoryView(),
       binding: DoctorCategoryBinding(),
+    ),
+    GetPage(
+      name: _Paths.DOCTOR_CATEGORY,
+      page: () => HDoctorCategoryView(),
+      binding: HDoctorCategoryBinding(),
     ),
     GetPage(
       name: _Paths.LIST_DOCTOR,
