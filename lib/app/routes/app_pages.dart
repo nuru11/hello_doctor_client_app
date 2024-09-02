@@ -34,6 +34,8 @@ import '../modules/list_chat/bindings/list_chat_binding.dart';
 import '../modules/list_chat/views/list_chat_view.dart';
 import '../modules/list_doctor/bindings/list_doctor_binding.dart';
 import '../modules/list_doctor/views/list_doctor_view.dart';
+import '../modules/hlist_doctor/bindings/hlist_doctor_binding.dart';
+import '../modules/hlist_doctor/views/hlist_doctor_view.dart';
 import '../modules/list_prescription/bindings/list_prescription_binding.dart';
 import '../modules/list_prescription/views/list_prescription_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -124,6 +126,11 @@ class AppPages {
       name: _Paths.LIST_DOCTOR,
       page: () => ListDoctorView(),
       binding: ListDoctorBinding(),
+    ),
+    GetPage(
+      name: _Paths.HLIST_DOCTOR,
+      page: () => HListDoctorView(),
+      binding: HListDoctorBinding(),
     ),
     GetPage(
       name: _Paths.DETAIL_DOCTOR,

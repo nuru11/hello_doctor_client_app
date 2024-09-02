@@ -10,7 +10,7 @@ class TimeSlotService {
       var documentSnapshot = await FirebaseFirestore.instance
           .collection('DoctorTimeslot')
           .where('bookByWho.userId', isEqualTo: userId)
-          .where('charged', isEqualTo: true)
+          .where('charged', isEqualTo: true)  //.where('pverified', isEqualTo: true)
           .get();
 
       if (documentSnapshot.docs.isEmpty) {

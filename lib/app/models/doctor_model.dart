@@ -12,6 +12,7 @@ class Doctor {
       this.doctorPicture,
       this.doctorPrice,
       this.doctorShortBiography,
+      this.doctorLanguage,
       this.doctorCategory,
       this.doctorHospital,
       this.accountStatus});
@@ -26,6 +27,8 @@ class Doctor {
   int? doctorPrice;
   @JsonKey(name: 'doctorBiography')
   String? doctorShortBiography;
+  @JsonKey(name: 'doctorLanguage')
+  String? doctorLanguage;
   @JsonKey(name: 'doctorCategory', toJson: doctorcategoryToJson)
   DoctorCategory? doctorCategory;
   @JsonKey(name: 'doctorHospital')

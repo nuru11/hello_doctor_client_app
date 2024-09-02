@@ -24,7 +24,7 @@ part 'doctor_hospital_model.g.dart';
 @JsonSerializable(ignoreUnannotated: true)
 class HDoctorCategory {
   String? id;
-  @JsonKey(name: 'hcategoryId')
+  @JsonKey(name: 'categoryId')
   String? categoryId;
   @JsonKey(name: 'categoryName')
   String? categoryName;

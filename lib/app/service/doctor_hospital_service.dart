@@ -18,7 +18,7 @@ class HDoctorCategoryService {
 
     final allData = snapshot.docs.map((doc) {
       var data = doc.data() as Map<String, dynamic>;
-      data['hcategoryId'] = doc.reference.id;
+      data['categoryId'] = doc.reference.id;
       return data;
     });
 

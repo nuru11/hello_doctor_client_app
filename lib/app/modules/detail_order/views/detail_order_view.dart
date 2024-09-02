@@ -82,47 +82,53 @@ class DetailOrderView extends GetView<DetailOrderController> {
                         ),
                       ),
                     ),
-                    // GetBuilder<DetailOrderController>(
-                    //   builder: (_) {
-                    //     return FormBuilder(
-                    //       key: controller.formKey,
-                    //       child: Column(
-                    //         children: [
-                    //           FormBuilderDropdown(
-                    //             name: 'payment_method',
-                    //             isExpanded: true,
-                    //             decoration: InputDecoration(
-                    //                 hintText: 'Payment Method',
-                    //                 border: OutlineInputBorder(
-                    //                     borderRadius:
-                    //                         BorderRadius.circular(10.0),
-                    //                     borderSide: BorderSide(
-                    //                       width: 1,
-                    //                       style: BorderStyle.solid,
-                    //                     ))),
-                    //             items: controller.paymentType.map((option) {
-                    //               if (option == 'Wallet') {
-                    //                 return DropdownMenuItem(
-                    //                   child: Text(
-                    //                       'Wallet with Balance: $currencySign${controller.userWallet?.balance?.toString() ?? '0'}'),
-                    //                   value: option,
-                    //                 );
-                    //               }
-                    //               return DropdownMenuItem(
-                    //                 child: Text(option),
-                    //                 value: option,
-                    //               );
-                    //             }).toList(),
-                    //             validator: FormBuilderValidators.required(),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     );
-                    //   },
-                    // ),
-                    // SizedBox(
-                    //   height: 20,
-                    // ),
+                    GetBuilder<DetailOrderController>(
+                      builder: (_) {
+                        return FormBuilder(
+                          key: controller.formKey,
+                          child: Column(
+                            children: [
+                              Visibility(
+  visible: false, // Replace 'someCondition' with the appropriate condition
+  child: FormBuilderDropdown(
+    name: 'payment_method',
+    isExpanded: true,
+    decoration: InputDecoration(
+      hintText: 'Payment Method',
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.0),
+        borderSide: BorderSide(
+          width: 1,
+          style: BorderStyle.solid,
+        ),
+      ),
+    ),
+    initialValue: 'Wallet',
+    items: controller.paymentType.map((option) {
+      if (option == 'Wallet') {
+        return DropdownMenuItem(
+          child: Text('Wallet with Balance: $currencySign${controller.userWallet?.balance?.toString() ?? '0'}'),
+          value: option,
+        );
+      }
+
+      
+      return DropdownMenuItem(
+        child: Text(option),
+        value: option,
+      );
+    }).toList(),
+    validator: FormBuilderValidators.required(),
+  ),
+),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     GetBuilder<DetailOrderController>(
                       builder: (_) {
                         return Container(
@@ -140,7 +146,7 @@ class DetailOrderView extends GetView<DetailOrderController> {
                               color: secondaryColor,
                             ),
                             child: Text(
-                              'Confirm'.tr,
+                              'Book Now'.tr,
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
@@ -296,15 +302,16 @@ class DetailOrderView extends GetView<DetailOrderController> {
                       Navigator.of(context).pop();
                       print(dummyImagePaths[index]);
                       //  Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentStepsPage()));
-                      Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => PaymentStepsPage(
-                  name: dummyNames[index],
-                  imagePath: dummyImagePaths[index],
-                ),
-              ),
-            );
+            //           Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) => PaymentStepsPage(
+            //       name: dummyNames[index],
+            //       imagePath: dummyImagePaths[index],
+            //     ),
+            //   ),
+            // );
+            controller.makePayment();
                     },
                   );
                 },

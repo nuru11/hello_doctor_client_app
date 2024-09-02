@@ -52,18 +52,18 @@ class DetailDoctorView extends GetView<DetailDoctorController> {
                   SizedBox(
                     height: 20,
                   ),
-                  // Container(
-                  //   width: double.infinity,
-                  //   child: Text(
-                  //     'Biography'.tr,
-                  //     style: titleTextStyle,
-                  //   ),
-                  // ),
-                  // SizedBox(height: 5),
-                  // Text(
-                  //   doctor.doctorShortBiography!,
-                  //   style: subTitleTextStyle,
-                  // ),
+                  Container(
+                    width: double.infinity,
+                    child: Text(
+                      'Biography'.tr,
+                      style: titleTextStyle,
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    doctor.doctorShortBiography!,
+                    style: subTitleTextStyle,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

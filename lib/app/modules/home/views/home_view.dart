@@ -275,20 +275,16 @@ class HomeView extends GetView<HomeController> {
                       //         arguments: DoctorCategory(
                       //   categoryId: "JgtLjSs2xMxwshxXsDPm", categoryName: "Geriatric Center", iconUrl: "https://firebasestorage.googleapis.com/v0/b/doctor-208bc.appspot.com/o/uploads%2F1718198483105.jpg?alt=media&token=eabaeb16-685b-4735-8680-ae45c0bd1571",
                       // ));
-                       Navigator.push(
-      context,
-      MaterialPageRoute(
-        // builder: (context) => HDoctorCategoryView(), 
-        builder: (context) => SelectServiceClinic(),
-        
-      ),
-    );
+                      Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HDoctorCategoryView()),
+            );
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.blue,
                                       
                                     ),
-                                    child: Text('Clinics List'.tr, style: TextStyle(color: Colors.white)),
+                                    child: Text('Clinics Lists'.tr, style: TextStyle(color: Colors.white)),
                                   ),
                                 ), 
                   
@@ -410,13 +406,18 @@ class HomeView extends GetView<HomeController> {
                               text: "Hospitals".tr,
                               onTap: () {
                                 // controller.toTopRatedDoctor();
-                                 Navigator.push(
-      context,
-      MaterialPageRoute(
-        // builder: (context) => HDoctorCategoryView(), 
-        builder: (context) => SelectServiceHospital(),
-      ),
-    );
+    //                              Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //     // builder: (context) => HDoctorCategoryView(), 
+    //     builder: (context) => SelectServiceHospital(),
+    //   ),
+    // );
+
+    Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HDoctorCategoryView()),
+            );
                                 
                               },
                             ),

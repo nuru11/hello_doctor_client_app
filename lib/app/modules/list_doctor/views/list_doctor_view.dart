@@ -125,7 +125,7 @@ class ListDoctorView extends GetView<ListDoctorController> {
                         padding: EdgeInsets.only(top: 10.0),
                         itemCount: listDoctor!.length,
                         itemBuilder: (context, index) {
-                          if (listDoctor[index].doctorShortBiography!.toLowerCase().contains(_selectedLang.value.toLowerCase())  && _selectedLang.value.toLowerCase() != "all") {
+                          if (listDoctor[index].doctorLanguage!.toLowerCase().contains(_selectedLang.value.toLowerCase())  && _selectedLang.value.toLowerCase() != "all") {
                            
                             return DoctorCard(
                                 doctorName: listDoctor[index].doctorName ?? '',

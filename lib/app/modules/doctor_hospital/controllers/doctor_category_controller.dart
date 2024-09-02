@@ -9,6 +9,7 @@ class HDoctorCategoryController extends GetxController
   final count = 0.obs;
   @override
   void onInit() {
+    print("lllllllllsssssss");
     super.onInit();
     HDoctorCategoryService().getListDoctorCategory().then((value) {
       change(value, status: RxStatus.success());

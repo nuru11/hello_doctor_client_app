@@ -11,7 +11,8 @@ Doctor _$DoctorFromJson(Map<String, dynamic> json) => Doctor(
       doctorName: json['doctorName'] as String?,
       doctorPicture: json['doctorPicture'] as String?,
       doctorPrice: json['doctorBasePrice'] as int?,
-      doctorShortBiography: json['doctorBiography'] as String?,
+      doctorShortBiography: json['doctorBiography'] as String?,  
+      doctorLanguage: json['doctorLanguage'] as String?,
       doctorCategory: json['doctorCategory'] == null
           ? null
           : DoctorCategory.fromJson(
@@ -26,6 +27,7 @@ Map<String, dynamic> _$DoctorToJson(Doctor instance) => <String, dynamic>{
       'doctorPicture': instance.doctorPicture,
       'doctorBasePrice': instance.doctorPrice,
       'doctorBiography': instance.doctorShortBiography,
+      'doctorLanguage': instance.doctorLanguage,
       'doctorCategory': Doctor.doctorcategoryToJson(instance.doctorCategory),
       'doctorHospital': instance.doctorHospital,
       'accountStatus': instance.accountStatus,

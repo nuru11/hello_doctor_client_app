@@ -53,6 +53,7 @@ class PaymentService {
 
   Future<bool> purchaseTimeSlotWithWallet(
       {required String userId, required String timeSlotId}) async {
+       
     try {
       final HttpsCallable callable = FirebaseFunctions.instance
           .httpsCallable('purchaseTimeSlotWithWallet');

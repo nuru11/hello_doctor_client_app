@@ -15,7 +15,7 @@ class HDoctorCategoryView extends GetView<HDoctorCategoryController> {
         backgroundColor: mBackgroundColor,
         elevation: 0,
         title: Text(
-          'Doctor Specialist'.tr,
+          'Doctor Hospital'.tr,
           style: TextStyle(color: mTitleColor),
         ),
         centerTitle: true,
@@ -37,7 +37,8 @@ class HDoctorCategoryView extends GetView<HDoctorCategoryController> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        Get.toNamed('/list-doctor',
+                        print(listCategory[index].toJson());
+                        Get.toNamed('/hlist-doctor',
                             arguments: listCategory[index]);
                       },
                       child: Container(

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hallo_doctor_client/app/collection/firebase_collection.dart';
 import 'package:hallo_doctor_client/app/models/doctor_category_model.dart';
+import 'package:hallo_doctor_client/app/models/doctor_hospital_model.dart';
 import 'package:hallo_doctor_client/app/models/doctor_model.dart';
 import 'package:hallo_doctor_client/app/models/time_slot_model.dart';
 
@@ -53,6 +54,36 @@ class DoctorService {
           .collection('Doctors')
           .where('doctorCategory.categoryId',
               isEqualTo: doctorCategory.categoryId)
+          .where('accountStatus', isEqualTo: 'active')
+          .get();
+
+      if (listDoctorQuery.docs.isEmpty) return [];
+      var list = listDoctorQuery.docs.map((doc) {
+        var data = doc.data();
+        data['doctorId'] = doc.reference.id;
+        Doctor doctor = Doctor.fromJson(data);
+        listDoctor.add(doctor);
+      }).toList();
+      print('list doctor : ' + list.toString());
+      return listDoctor;
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  Future<List<Doctor>> getHListDoctorByCategory(
+      HDoctorCategory hdoctorCategory) async {
+
+        print("ssssssssssser");
+    try {
+      List<Doctor> listDoctor = [];
+
+      print("from doctor_service ${hdoctorCategory.categoryId}");
+      
+      var listDoctorQuery = await FirebaseFirestore.instance
+          .collection('Doctors')
+          .where('hdoctorCategory.categoryId',
+              isEqualTo: hdoctorCategory.categoryId)
           .where('accountStatus', isEqualTo: 'active')
           .get();
 

@@ -166,8 +166,11 @@ class DetailOrderController extends GetxController {
         var data = await Get.defaultDialog<bool>(
           
             title: 'Confirmation',
-            middleText:
-                'Are you sure you want to make payment with ${formKey.currentState!.value['payment_method']} for ${currencySign}${selectedTimeSlot.price}'
+            // middleText:
+            //     'Are you sure you want to make payment with ${formKey.currentState!.value['payment_method']} for ${currencySign}${selectedTimeSlot.price}'
+            //         .tr,
+             middleText:
+                'pay ETB${selectedTimeSlot.price} to 10002827281 '
                     .tr,
             textCancel: 'Cancel',
             textConfirm: 'OK',
@@ -179,7 +182,8 @@ class DetailOrderController extends GetxController {
           if (formKey.currentState!.value['payment_method'] == 'Stripe') {
             showDialogStripeTesting();
           } else if (formKey.currentState!.value['payment_method'] ==
-              'Wallet') {
+              'Wallet' || formKey.currentState!.value['payment_method'] !=
+              'Wallet' ) {
             payWithWallet();
           }
           // EasyLoading.show(status: 'Saving...');
@@ -269,20 +273,20 @@ class DetailOrderController extends GetxController {
   void payWithWallet() async {
     try {
       EasyLoading.show();
-      if (userWallet == null) {
-        Fluttertoast.showToast(
-            msg: 'Wallet is empty, please top up in Wallet section');
-        return;
-      }
-      if (userWallet!.balance! <= 0) {
-        Fluttertoast.showToast(
-            msg: 'Your wallet is empty, please top up in Wallet section');
-        return;
-      }
-      if (userWallet!.balance! < selectedTimeSlot.price!) {
-        Fluttertoast.showToast(msg: 'Your wallet balance is not enough');
-        return;
-      }
+      // if (userWallet == null) {
+      //   Fluttertoast.showToast(
+      //       msg: 'Wallet is empty, please top up in Wallet section');
+      //   return;
+      // }
+      // if (userWallet!.balance! <= 0) {
+      //   Fluttertoast.showToast(
+      //       msg: 'Your wallet is empty, please top up in Wallet section');
+      //   return;
+      // }
+      // if (userWallet!.balance! < selectedTimeSlot.price!) {
+      //   Fluttertoast.showToast(msg: 'Your wallet balance is not enough');
+      //   return;
+      // }
       String userId = UserService().getUserId();
       if (selectedTimeSlot.timeSlotId == null) {
         throw Exception('time slot id is null');
